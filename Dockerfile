@@ -1,12 +1,11 @@
 FROM alpine
 MAINTAINER theBinary <binary4bytes@gmail.com>
 
+COPY requirements.txt /tmp/requirements.txt
 RUN apk add --no-cache py2-pip \
     && pip install --upgrade pip \
     && pip install flask
-
-# Cleanup
-RUN rm -rf /.wh /root/.cache /var/cache
+    && pip install -r /tmp/requirements.txt
 
 ENV APP_DIR /app
 ENV FLASK_APP app.py
@@ -15,6 +14,9 @@ COPY app ${APP_DIR}
 
 VOLUME ${APP_DIR}
 EXPOSE 5000
+
+# Cleanup
+RUN rm -rf /.wh /root/.cache /var/cache /tmp/requirements.txt
 
 WORKDIR ${APP_DIR}
 ENTRYPOINT ["/usr/bin/flask"]
