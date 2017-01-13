@@ -4,7 +4,7 @@ MAINTAINER theBinary <binary4bytes@gmail.com>
 COPY requirements.txt /tmp/requirements.txt
 RUN apk add --no-cache py2-pip \
     && pip install --upgrade pip \
-    && pip install flask
+    && pip install flask \
     && pip install -r /tmp/requirements.txt
 
 ENV APP_DIR /app
