@@ -19,5 +19,4 @@ EXPOSE 5000
 RUN rm -rf /.wh /root/.cache /var/cache /tmp/requirements.txt
 
 WORKDIR ${APP_DIR}
-ENTRYPOINT ["/usr/bin/flask"]
-CMD ["run", "--reload", "-h", " 0.0.0.0"]
+CMD ["/usr/bin/flask", "run", "--reload", "-h", " 0.0.0.0"]
