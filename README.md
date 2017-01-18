@@ -8,6 +8,7 @@ Currently, only suggested for 'development' environment
 https://hub.docker.com/r/thebinary/alpine-flask/
 
 Properties
+
 | Parameters | Values |
 |------------|--------|
 | APP Directory | /app |
